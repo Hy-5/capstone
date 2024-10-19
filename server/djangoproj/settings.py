@@ -18,6 +18,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -61,7 +62,9 @@ ROOT_URLCONF = 'djangoproj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR,'frontend/static')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,5 +137,9 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = []
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'frontend/static')
+]
 
+ALLOWED_HOSTS=['localhost', 'https://aboucoulibal-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai']
+CSRF_TRUSTED_ORIGINS=['https://aboucoulibal-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai']
